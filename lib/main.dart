@@ -1,13 +1,20 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fotmob_clone/core/utils/app_router.dart';
 import 'package:fotmob_clone/features/home/presentation/manager/cubit/theme_cubit.dart';
 
-
-
 void main() async {
-  runApp(const MyApp());
+  runApp(
+    MyApp(), 
+    // DevicePreview(
+    //   enabled: !kReleaseMode,
+    //   builder: (context) => // Wrap your app
+    // ),
+  );
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});

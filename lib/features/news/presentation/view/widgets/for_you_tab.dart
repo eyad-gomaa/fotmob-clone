@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'package:fotmob_clone/core/utils/manager/color_manager.dart';
 import 'package:fotmob_clone/features/leagues/presentation/view/widgets/post_data.dart';
 import 'package:fotmob_clone/features/leagues/presentation/view/widgets/section_title.dart';
 import 'package:fotmob_clone/features/news/presentation/view/widgets/row_post.dart';
@@ -25,8 +24,7 @@ class ForyouTab extends StatelessWidget {
                 ),
                 const Gap(20),
                 Container(
-                  width: MediaQuery.sizeOf(context)
-                      .width, // Adjust the width as needed
+                  constraints: const BoxConstraints(maxWidth: 500),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(18),
                   ),

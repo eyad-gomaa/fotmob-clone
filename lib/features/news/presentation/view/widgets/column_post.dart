@@ -10,21 +10,82 @@ class ColumnPost extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 20),
-      child: Column(
-        children: [
-          ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.asset("assets/images/sports.jpeg")),
-          const Gap(15),
-          const Text(
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-            style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Center(
+        child: Container(
+          constraints: const BoxConstraints(maxWidth: 600),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset("assets/images/sports.jpeg"),
+              ),
+              const Gap(10),
+              const Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                  Gap(10),
+                  PostData()
+                ],
+              )
+            ],
           ),
-          const Gap(10),
-          const PostData(),
-        ],
+        ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Container(
+//       constraints: const BoxConstraints(maxWidth: 500),
+//       child: Column(
+//         children: [
+//           Container(
+//       constraints: const BoxConstraints(maxWidth: 500),
+//             child: ClipRRect(
+//                 borderRadius: BorderRadius.circular(12),
+//                 child: Image.asset(
+//                   "assets/images/sports.jpeg",
+//                   fit: BoxFit.cover,
+//                 )),
+//           ),
+//           const Gap(15),
+//           Container(
+//             constraints: const BoxConstraints(maxWidth: 500),
+//             child: const Text(
+//               "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+//               style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+//             ),
+//           ),
+//           const Gap(10),
+//           Container(
+//             constraints: const BoxConstraints(maxWidth: 500),
+//             child: const PostData()),
+//         ],
+//       ),
+//     );

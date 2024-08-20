@@ -23,51 +23,46 @@ class _FollowingViewState extends State<FollowingView>
   Widget build(BuildContext context) {
     return Scaffold(
       body: NestedScrollView(
-        headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
-          return <Widget>[
-            SliverAppBar(
-              automaticallyImplyLeading: false,
-              title: const Text(
-                "Leagues",
-                style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-              ),
-              pinned: true,
-              floating: true,
-              bottom: PreferredSize(
-                preferredSize: const Size.fromHeight(kTextTabBarHeight + 10),
-                child: TabBar(
-                  padding: const EdgeInsets.only(bottom: 10),
-                  dividerHeight: 0,
-                  labelColor: Colors.white,
-                  indicator: BoxDecoration(
-                    color: ColorManager.primaryColor,
-                    borderRadius: BorderRadius.circular(12),
+          headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
+            return <Widget>[
+              SliverAppBar(
+                automaticallyImplyLeading: false,
+                title: const Text(
+                  "Leagues",
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                pinned: true,
+                floating: true,
+                bottom: PreferredSize(
+                  preferredSize: const Size.fromHeight(kTextTabBarHeight + 10),
+                  child: TabBar(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    dividerHeight: 0,
+                    labelColor: Colors.white,
+                    indicator: BoxDecoration(
+                      color: ColorManager.primaryColor,
+                      borderRadius: BorderRadius.circular(12),
+                    ),
+                    isScrollable: true,
+                    tabAlignment: TabAlignment.start,
+                    controller: _controller,
+                    enableFeedback: false,
+                    tabs: const [
+                      CustomTab(
+                        tabTitle: 'Teams',
+                      ),
+                      CustomTab(
+                        tabTitle: 'Players',
+                      ),
+                    ],
                   ),
-                  isScrollable: true,
-                  tabAlignment: TabAlignment.start,
-                  controller: _controller,
-                  enableFeedback: false,
-                  tabs: const [
-                    CustomTab(
-                      tabTitle: 'Teams',
-                    ),
-                    CustomTab(
-                      tabTitle: 'Players',
-                    ),
-                  ],
                 ),
               ),
-            ),
-          ];
-        },
-        body: TabBarView(
-          controller: _controller,
-          children: const [
-            FollowingViewBody(),
-            FollowingViewBody(),
-          ],
-        ),
-      ),
+            ];
+          },
+          body: FollowingViewBody(
+            controller: _controller,
+          )),
     );
   }
 }
