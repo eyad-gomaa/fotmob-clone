@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fotmob_clone/core/utils/app_router.dart';
 import 'package:fotmob_clone/core/utils/manager/color_manager.dart';
+import 'package:fotmob_clone/core/utils/theme/dark_theme.dart';
 import 'package:fotmob_clone/features/home/presentation/manager/cubit/theme_cubit.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class MoreViewBody extends StatelessWidget {
   const MoreViewBody({super.key});
@@ -15,15 +18,26 @@ class MoreViewBody extends StatelessWidget {
         physics: const NeverScrollableScrollPhysics(),
         children: [
           const Gap(20),
-          const SettingsListTileDecoration(
+          BasicSettingsContainer(
+            title: "Transfer Center",
+            icon: const Icon(Icons.swap_vert_circle_outlined),
+            onTap: () {
+              GoRouter.of(context).push(RouterPath.transferCenterView);
+            },
+          ),
+          const Gap(20),
+          SettingsListTileDecoration(
             listTile: ListTile(
-              leading: Icon(Icons.abc),
-              title: Text(
-                "Theme",
+              onTap: () {
+                GoRouter.of(context).push(RouterPath.tvShedulesView);
+              },
+              leading: const Icon(Icons.abc),
+              title: const Text(
+                "Tv schedules",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              subtitle: Text(
-                "System default",
+              subtitle: const Text(
+                "Middle East",
                 style: TextStyle(color: Colors.grey),
               ),
             ),
@@ -33,15 +47,16 @@ class MoreViewBody extends StatelessWidget {
             listTile: ListTile(
               leading: const Icon(Icons.abc),
               title: const Text(
-                "Theme",
+                "Dark Theme",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
-              trailing: BlocBuilder<ThemeCubit, ThemeState>(
+              trailing: BlocBuilder<ThemeCubit, ThemeData>(
                 builder: (context, state) {
                   return Switch(
-                    value: BlocProvider.of<ThemeCubit>(context).value!,
+                    value:
+                        BlocProvider.of<ThemeCubit>(context).state == darkTheme,
                     onChanged: (value) {
-                      BlocProvider.of<ThemeCubit>(context).changeTheme();
+                      BlocProvider.of<ThemeCubit>(context).toggleTheme();
                     },
                     activeColor: ColorManager.primaryColor,
                   );
@@ -50,17 +65,41 @@ class MoreViewBody extends StatelessWidget {
             ),
           ),
           const Gap(20),
-          const SettingsListTileDecoration(
-            listTile: ListTile(
-              leading: Icon(Icons.share),
-              title: Text(
-                "Theme",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-            ),
+          BasicSettingsContainer(
+            title: "Share",
+            icon: const Icon(Icons.share),
+            onTap: ()  {
+            },
           ),
           const Gap(20),
         ],
+      ),
+    );
+  }
+}
+
+class BasicSettingsContainer extends StatelessWidget {
+  const BasicSettingsContainer({
+    super.key,
+    required this.title,
+    required this.icon,
+    required this.onTap,
+  });
+  final String title;
+  final Icon icon;
+  final void Function() onTap;
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: SettingsListTileDecoration(
+        listTile: ListTile(
+          leading: icon,
+          title: Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ),
       ),
     );
   }

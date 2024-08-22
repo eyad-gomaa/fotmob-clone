@@ -33,9 +33,7 @@ class CustomExpansionTile extends StatelessWidget {
           ],
         ),
         children: [
-          Hero(
-            tag: "matchItemTag",
-            child: MatchItem()),
+          MatchItem(),
           MatchItem(),
           MatchItem(),
           MatchItem(),

@@ -4,20 +4,21 @@ import 'package:fotmob_clone/core/utils/manager/color_manager.dart';
 ThemeData darkTheme = ThemeData(
   scaffoldBackgroundColor: Colors.black,
   colorScheme: ColorScheme(
-      brightness: Brightness.dark,
-      primary: ColorManager.primaryColor,
-      onPrimary: Colors.white,
-      secondary: const Color(0xff03dac6),
-      onSecondary: Colors.black,
-      error: Colors.red,
-      onError: Colors.black,
-      surface: ColorManager.darkGreyColor,
-      onSurface: Colors.white),
+    brightness: Brightness.dark,
+    primary: ColorManager.primaryColor,
+    onPrimary: Colors.white,
+    secondary: const Color(0xff03dac6),
+    onSecondary: Colors.black,
+    error: Colors.red,
+    onError: Colors.black,
+    surface: ColorManager.darkGreyColor,
+    onSurface: Colors.white,
+    surfaceBright: const Color.fromARGB(255, 63, 63, 63).withOpacity(0.2),
+  ),
   appBarTheme: const AppBarTheme(
     elevation: 0,
   ),
-  tabBarTheme:  
-  TabBarTheme(
+  tabBarTheme: TabBarTheme(
     labelPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
     labelColor: Colors.white,
     indicatorColor: ColorManager.primaryColor,

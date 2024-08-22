@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fotmob_clone/features/following/presentation/view/widgets/overview_tab.dart';
 import 'package:fotmob_clone/features/home/presentation/view/widgets/custom_tab.dart';
 import 'package:fotmob_clone/features/leagues/presentation/view/widgets/league_data_view_body.dart';
-import 'package:fotmob_clone/features/matches/presentation/view/widgets/match_preview_tab.dart';
+import 'package:fotmob_clone/features/matches/presentation/view/tabs/match_h2h_tab.dart';
+import 'package:fotmob_clone/features/matches/presentation/view/tabs/match_preview_tab.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 
@@ -21,7 +22,7 @@ class _MatchDataViewBodyState extends State<MatchDataViewBody>
   @override
   void initState() {
     super.initState();
-    _tabController = TabController(length: 4, vsync: this);
+    _tabController = TabController(length: 2, vsync: this);
     _myScrollController = ScrollController();
     _myScrollController.addListener(_handleScroll);
   }
@@ -50,7 +51,6 @@ class _MatchDataViewBodyState extends State<MatchDataViewBody>
         return widget;
       }
     }
-
     return CustomScrollView(
       controller: _myScrollController,
       slivers: [
@@ -157,22 +157,17 @@ class _MatchDataViewBodyState extends State<MatchDataViewBody>
                   controller: _tabController,
                   tabs: const [
                     CustomTab(tabTitle: "Preview"),
-                    CustomTab(tabTitle: "Lineup"),
-                    CustomTab(tabTitle: "Table"),
                     CustomTab(tabTitle: "H2H"),
                   ],
                 ),
               ),
-              // Use Expanded to ensure the TabBarView fills the remaining space
               SizedBox(
                 height: MediaQuery.of(context).size.height,
                 child: TabBarView(
                   controller: _tabController,
                   children: const [
                     MatchPreviewTab(),
-                    MatchPreviewTab(),
-                    MatchPreviewTab(),
-                    MatchPreviewTab(),
+                    MatchH2hTab(),
                   ],
                 ),
               ),

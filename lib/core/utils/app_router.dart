@@ -3,6 +3,8 @@ import 'package:fotmob_clone/features/following/presentation/view/team_view.dart
 import 'package:fotmob_clone/features/home/presentation/view/home_view.dart';
 import 'package:fotmob_clone/features/leagues/presentation/view/league_data_view.dart';
 import 'package:fotmob_clone/features/matches/presentation/view/match_data_view.dart';
+import 'package:fotmob_clone/features/more/presentation/view/transfer_center_view.dart';
+import 'package:fotmob_clone/features/more/presentation/view/tv_shedules_view.dart';
 import 'package:fotmob_clone/features/onboarding/presentation/view/follow_view.dart';
 import 'package:fotmob_clone/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:fotmob_clone/features/onboarding/presentation/view/review_leagues_view.dart';
@@ -16,9 +18,11 @@ class RouterPath {
   static const String matchDataView = "/matchDataView";
   static const String leagueDataView = "/leagueDataView";
   static const String teamView = "/teamView";
+  static const String transferCenterView = "/transferCenterView";
+  static const String tvShedulesView = "/tvShedulesView";
 }
 
-CustomTransitionPage buildPageWithDefaultTransition<T>({
+CustomTransitionPage buildPageWithFadeTransition<T>({
   required BuildContext context,
   required GoRouterState state,
   required Widget child,
@@ -31,50 +35,91 @@ CustomTransitionPage buildPageWithDefaultTransition<T>({
   );
 }
 
+CustomTransitionPage buildPageWithSlideTransition<T>({
+  required BuildContext context,
+  required GoRouterState state,
+  required Widget child,
+}) {
+  return CustomTransitionPage<T>(
+    key: state.pageKey,
+    child: child,
+    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+      Animation<Offset> slideAnimation = Tween<Offset>(
+        begin: const Offset(-1.0, 0.0),
+        end: const Offset(0.0, 0.0),
+      ).animate(animation);
+
+      return SlideTransition(
+        position: slideAnimation,
+        child: child,
+      );
+    },
+  );
+}
+
 final GoRouter router = GoRouter(
   routes: [
     GoRoute(
       path: RouterPath.onBoardingView,
-      builder: (BuildContext context, GoRouterState state) {
-        return const OnBoardingView();
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return buildPageWithSlideTransition(
+            context: context, state: state, child: const OnBoardingView()); 
       },
     ),
     GoRoute(
       path: RouterPath.followView,
       pageBuilder: (BuildContext context, GoRouterState state) {
-        return buildPageWithDefaultTransition(
-            context: context, state: state, child: const FollowView());
+        return buildPageWithSlideTransition(
+            context: context, state: state, child: const FollowView()); 
       },
     ),
     GoRoute(
       path: RouterPath.reviewLeaguesView,
-      builder: (BuildContext context, GoRouterState state) {
-        return const ReviewLeaguesView();
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return buildPageWithSlideTransition(
+            context: context, state: state, child: const ReviewLeaguesView()); 
       },
     ),
     GoRoute(
       path: RouterPath.homeView,
-      builder: (BuildContext context, GoRouterState state) {
-        return const HomeView();
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return buildPageWithSlideTransition(
+            context: context, state: state, child: const HomeView()); 
       },
     ),
     GoRoute(
       path: RouterPath.matchDataView,
-      builder: (BuildContext context, GoRouterState state) {
-        return const MatchDataView();
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return buildPageWithSlideTransition(
+            context: context, state: state, child: const MatchDataView()); 
       },
     ),
     GoRoute(
       path: RouterPath.leagueDataView,
-      builder: (BuildContext context, GoRouterState state) {
-        return const LeagueDataView();
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return buildPageWithSlideTransition(
+            context: context, state: state, child: const LeagueDataView()); 
       },
     ),
     GoRoute(
       path: RouterPath.teamView,
       pageBuilder: (BuildContext context, GoRouterState state) {
-        return buildPageWithDefaultTransition(
+        return buildPageWithSlideTransition(
             context: context, state: state, child: const TeamView());
+      },
+    ),
+    GoRoute(
+      path: RouterPath.transferCenterView,
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return buildPageWithSlideTransition(
+            context: context, state: state, child: const TransferCenterView());
+      },
+    ),
+    GoRoute(
+      path: RouterPath.tvShedulesView,
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return buildPageWithSlideTransition(
+            context: context, state: state, child: const TvShedulesView());
       },
     ),
   ],

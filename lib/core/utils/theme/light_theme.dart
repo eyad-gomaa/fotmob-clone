@@ -12,11 +12,11 @@ ThemeData lightTheme = ThemeData(
     onSecondary: Colors.black,
     error: Colors.red,
     onError: Colors.black,
-    surface: const Color(0xffF7F7F8),
+    surface: const Color.fromARGB(255, 232, 232, 232),
     onSurface: Colors.black,
+    surfaceBright: const Color.fromARGB(255, 242, 242, 242),
   ),
   appBarTheme: AppBarTheme(
-    backgroundColor: Colors.white,
     titleTextStyle: TextStyle(
       fontSize: 24,
       color: ColorManager.primaryColor,
@@ -25,8 +25,7 @@ ThemeData lightTheme = ThemeData(
     elevation: 0,
   ),
   // ======================= Icon Theme ===========================
-  iconTheme: const IconThemeData(color: Colors.white),
-
+  iconTheme:  IconThemeData(color: ColorManager.primaryColor),
   // ======================= TabBar Theme ===========================
   tabBarTheme: TabBarTheme(
     labelPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),

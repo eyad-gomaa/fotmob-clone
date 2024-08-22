@@ -271,8 +271,9 @@ class AudioNews extends StatelessWidget {
             const Gap(20),
             Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(25),
-                  color: const Color.fromARGB(255, 40, 40, 40)),
+                borderRadius: BorderRadius.circular(25),
+                color: Theme.of(context).colorScheme.surfaceBright,
+              ),
               child: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
                 child: Row(
@@ -515,8 +516,9 @@ class HistoricalTablePositions extends StatelessWidget {
                     child: Container(
                       padding: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: const Color.fromARGB(255, 38, 38, 38)),
+                        borderRadius: BorderRadius.circular(10),
+                        color: Theme.of(context).colorScheme.surfaceBright,
+                      ),
                       child: LineChart(
                         LineChartData(
                           borderData: FlBorderData(show: false),
@@ -580,11 +582,11 @@ class TopPlayersContainer extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    topRight: Radius.circular(10)),
-                color: Color.fromARGB(255, 41, 41, 41)),
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                  topLeft: Radius.circular(10), topRight: Radius.circular(10)),
+              color: Theme.of(context).colorScheme.surfaceBright,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -627,11 +629,12 @@ class TopPlayersContainer extends StatelessWidget {
           ),
           Container(
             padding: const EdgeInsets.all(10),
-            decoration: const BoxDecoration(
-                borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(10),
-                    bottomRight: Radius.circular(10)),
-                color: Color.fromARGB(255, 38, 38, 38)),
+            decoration: BoxDecoration(
+              borderRadius: const BorderRadius.only(
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10)),
+              color: Theme.of(context).colorScheme.surfaceBright,
+            ),
             child: Column(
               children: [
                 const PlayerRatingRow(),

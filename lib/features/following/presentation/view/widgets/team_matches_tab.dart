@@ -18,29 +18,25 @@ class _TeamMatchesTabState extends State<TeamMatchesTab> {
   void initState() {
     super.initState();
     _scrollController = ScrollController();
-
-    // Set the initial scroll offset directly after the frame is built
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _scrollToGap();
     });
   }
 
   void _scrollToGap() {
-    // Get the RenderBox for each widget
     final RenderBox upcomingMatchesBox =
         _upcomingMatchesKey.currentContext!.findRenderObject() as RenderBox;
     final RenderBox completedMatchesBox =
         _completedMatchesKey.currentContext!.findRenderObject() as RenderBox;
 
-    // Calculate the position of the gap
     final double upcomingMatchesHeight = upcomingMatchesBox.size.height;
     final double completedMatchesHeight = completedMatchesBox.size.height;
 
     final double gapOffset =
         (upcomingMatchesHeight + completedMatchesHeight) / 2 -
-            20; // Assuming 20 is the gap height
+            20; 
 
-    // Scroll to the calculated offset
+
     _scrollController.jumpTo(gapOffset);
   }
 

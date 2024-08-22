@@ -7,7 +7,8 @@ class TeamNewsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-padding: const EdgeInsets.symmetric(horizontal: 10),      child: ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: ListView.builder(
         itemCount: 20,
         itemBuilder: (context, index) => const ColumnPost(),
       ),
