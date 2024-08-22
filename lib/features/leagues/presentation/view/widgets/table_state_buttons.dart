@@ -23,7 +23,7 @@ class _TableStateButtonsState extends State<TableStateButtons> {
         children: [
           Expanded(
               child: AnimatedToggleSwitch.size(
-                selectedIconScale: 1.1,
+            selectedIconScale: 1.1,
             animationCurve: Curves.linear,
             animationDuration: const Duration(milliseconds: 200),
             textDirection: TextDirection.rtl,
@@ -84,7 +84,7 @@ class _TableStateButtonsState extends State<TableStateButtons> {
             height: 40,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(50),
-              color: ColorManager.darkGreyColor,
+              color: Theme.of(context).colorScheme.surface,
             ),
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -92,11 +92,11 @@ class _TableStateButtonsState extends State<TableStateButtons> {
                 child: DropdownButton(
                   value: "Overall",
                   borderRadius: BorderRadius.circular(20),
-                  iconDisabledColor: ColorManager.darkGreyColor,
-                  focusColor: ColorManager.darkGreyColor,
-                  dropdownColor: ColorManager.darkGreyColor,
-                  iconEnabledColor: Colors.white,
-                  style: const TextStyle(fontSize: 15),
+                  iconDisabledColor: Theme.of(context).colorScheme.surface,
+                  focusColor: Theme.of(context).colorScheme.surface,
+                  dropdownColor: Theme.of(context).colorScheme.surface,
+                  iconEnabledColor: Theme.of(context).colorScheme.onSurface,
+                  style:  TextStyle(fontSize: 15,color: Theme.of(context).colorScheme.onSurface),
                   padding: const EdgeInsets.all(0),
                   items: const [
                     DropdownMenuItem(

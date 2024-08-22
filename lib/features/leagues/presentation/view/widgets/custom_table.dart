@@ -10,44 +10,42 @@ class CustomTable extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          child: Container(
-            width: MediaQuery.sizeOf(context).width,
-            decoration: BoxDecoration(
-              color: ColorManager.darkGreyColor,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Column(
-              children: [
-                Table(
-                  defaultVerticalAlignment: TableCellVerticalAlignment.middle,
-                  columnWidths: const {
-                    0: FixedColumnWidth(130),
-                    5: FixedColumnWidth(50),
-                  },
-                  children: [
-                    _tableHeader(),
-                    _tableDivider(),
-                    _testTableRow(gd: 22),
-                    _testTableRow(gd: -10),
-                    _testTableRow(gd: 30),
-                    _testTableRow(gd: 36),
-                    _testTableRow(gd: 65),
-                    _testTableRow(gd: -2),
-                    _testTableRow(gd: 3),
-                    _testTableRow(gd: -12),
-                    _testTableRow(gd: 77),
-                  ],
-                )
-              ],
-            ),
-          )),
-    );
+    return Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+        child: Container(
+          width: MediaQuery.sizeOf(context).width,
+          decoration: BoxDecoration(
+            color: Theme.of(context).colorScheme.surface,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            children: [
+              Table(
+                defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+                columnWidths: const {
+                  0: FixedColumnWidth(130),
+                  5: FixedColumnWidth(50),
+                },
+                children: [
+                  _tableHeader(),
+                  _tableDivider(),
+                  _testTableRow(gd: 22, context: context),
+                  _testTableRow(gd: -10, context: context),
+                  _testTableRow(gd: 30, context: context),
+                  _testTableRow(gd: 36, context: context),
+                  _testTableRow(gd: 65, context: context),
+                  _testTableRow(gd: -2, context: context),
+                  _testTableRow(gd: 3, context: context),
+                  _testTableRow(gd: -12, context: context),
+                  _testTableRow(gd: 77, context: context),
+                ],
+              )
+            ],
+          ),
+        ));
   }
 
-  TableRow _testTableRow({required int gd}) {
+  TableRow _testTableRow({required int gd,required BuildContext context}) {
     return TableRow(
       children: [
         Row(
@@ -101,7 +99,7 @@ class CustomTable extends StatelessWidget {
         Center(
             child: Text(
           gd.toString(),
-          style: TextStyle(color: gd > 0 ? Colors.white : Colors.red),
+          style: TextStyle(color: gd > 0 ?  Theme.of(context).colorScheme.onSurface: Colors.red),
         )),
         const Center(child: Text("35")),
       ],
