@@ -5,6 +5,7 @@ import 'package:fotmob_clone/features/leagues/presentation/view/league_data_view
 import 'package:fotmob_clone/features/matches/presentation/view/match_data_view.dart';
 import 'package:fotmob_clone/features/more/presentation/view/transfer_center_view.dart';
 import 'package:fotmob_clone/features/more/presentation/view/tv_shedules_view.dart';
+import 'package:fotmob_clone/features/news/presentation/view/news_webview.dart';
 import 'package:fotmob_clone/features/onboarding/presentation/view/follow_view.dart';
 import 'package:fotmob_clone/features/onboarding/presentation/view/onboarding_view.dart';
 import 'package:fotmob_clone/features/onboarding/presentation/view/review_leagues_view.dart';
@@ -20,6 +21,7 @@ class RouterPath {
   static const String teamView = "/teamView";
   static const String transferCenterView = "/transferCenterView";
   static const String tvShedulesView = "/tvShedulesView";
+  static const String newsWebView = "/newsWebView";
 }
 
 CustomTransitionPage buildPageWithFadeTransition<T>({
@@ -63,42 +65,42 @@ final GoRouter router = GoRouter(
       path: RouterPath.onBoardingView,
       pageBuilder: (BuildContext context, GoRouterState state) {
         return buildPageWithSlideTransition(
-            context: context, state: state, child: const OnBoardingView()); 
+            context: context, state: state, child: const OnBoardingView());
       },
     ),
     GoRoute(
       path: RouterPath.followView,
       pageBuilder: (BuildContext context, GoRouterState state) {
         return buildPageWithSlideTransition(
-            context: context, state: state, child: const FollowView()); 
+            context: context, state: state, child: const FollowView());
       },
     ),
     GoRoute(
       path: RouterPath.reviewLeaguesView,
       pageBuilder: (BuildContext context, GoRouterState state) {
         return buildPageWithSlideTransition(
-            context: context, state: state, child: const ReviewLeaguesView()); 
+            context: context, state: state, child: const ReviewLeaguesView());
       },
     ),
     GoRoute(
       path: RouterPath.homeView,
       pageBuilder: (BuildContext context, GoRouterState state) {
         return buildPageWithSlideTransition(
-            context: context, state: state, child: const HomeView()); 
+            context: context, state: state, child: const HomeView());
       },
     ),
     GoRoute(
       path: RouterPath.matchDataView,
       pageBuilder: (BuildContext context, GoRouterState state) {
         return buildPageWithSlideTransition(
-            context: context, state: state, child: const MatchDataView()); 
+            context: context, state: state, child: const MatchDataView());
       },
     ),
     GoRoute(
       path: RouterPath.leagueDataView,
       pageBuilder: (BuildContext context, GoRouterState state) {
         return buildPageWithSlideTransition(
-            context: context, state: state, child: const LeagueDataView()); 
+            context: context, state: state, child: const LeagueDataView());
       },
     ),
     GoRoute(
@@ -120,6 +122,13 @@ final GoRouter router = GoRouter(
       pageBuilder: (BuildContext context, GoRouterState state) {
         return buildPageWithSlideTransition(
             context: context, state: state, child: const TvShedulesView());
+      },
+    ),
+    GoRoute(
+      path: RouterPath.newsWebView,
+      pageBuilder: (BuildContext context, GoRouterState state) {
+        return buildPageWithSlideTransition(
+            context: context, state: state, child: const NewsWebView());
       },
     ),
   ],

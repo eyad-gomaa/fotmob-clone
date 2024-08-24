@@ -7,7 +7,7 @@ class QuickSetupButton extends StatelessWidget {
   const QuickSetupButton({
     super.key,
   });
-  
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -16,8 +16,9 @@ class QuickSetupButton extends StatelessWidget {
       },
       child: Container(
         decoration: BoxDecoration(
-            color: ColorManager.primaryColor,
-            borderRadius: BorderRadius.circular(50)),
+          color: ColorManager.primaryColor,
+          borderRadius: BorderRadius.circular(50),
+        ),
         child: const Padding(
           padding: EdgeInsets.all(20),
           child: Row(

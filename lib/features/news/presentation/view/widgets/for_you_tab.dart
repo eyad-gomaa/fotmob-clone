@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fotmob_clone/core/utils/app_router.dart';
 
 import 'package:fotmob_clone/features/leagues/presentation/view/widgets/post_data.dart';
 import 'package:fotmob_clone/features/leagues/presentation/view/widgets/section_title.dart';
 import 'package:fotmob_clone/features/news/presentation/view/widgets/row_post.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class ForyouTab extends StatelessWidget {
   const ForyouTab({super.key});
@@ -14,60 +16,16 @@ class ForyouTab extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: Column(
               children: [
-                const Gap(20),
-                const SectionTitle(
+                Gap(20),
+                SectionTitle(
                   title: 'Trending',
                   icon: Icons.analytics,
                 ),
-                const Gap(20),
-                Container(
-                  constraints: const BoxConstraints(maxWidth: 500),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(18),
-                  ),
-                  child: Stack(
-                    alignment: Alignment.bottomLeft,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(18),
-                        child: Image.asset(
-                          "assets/images/sports.jpeg",
-                          fit: BoxFit.cover,
-                        ),
-                      ),
-                      Positioned.fill(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                              colors: [
-                                Colors.black,
-                                Colors.black.withOpacity(0.5),
-                                Colors.transparent
-                              ],
-                              begin: Alignment.bottomCenter,
-                              end: Alignment.topCenter,
-                            ),
-                            borderRadius: BorderRadius.circular(18),
-                          ),
-                        ),
-                      ),
-                      const Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Text(
-                          'It is a long established fact that a reader will be distracted.',
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                Gap(20),
+                StackPost(),
               ],
             ),
           ),
@@ -181,6 +139,66 @@ class ForyouTab extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class StackPost extends StatelessWidget {
+  const StackPost({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        GoRouter.of(context).push(RouterPath.newsWebView);
+      },
+      child: Container(
+        constraints: const BoxConstraints(maxWidth: 500),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(18),
+        ),
+        child: Stack(
+          alignment: Alignment.bottomLeft,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(18),
+              child: Image.asset(
+                "assets/images/sports.jpeg",
+                fit: BoxFit.cover,
+              ),
+            ),
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Colors.black,
+                      Colors.black.withOpacity(0.5),
+                      Colors.transparent
+                    ],
+                    begin: Alignment.bottomCenter,
+                    end: Alignment.topCenter,
+                  ),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+              ),
+            ),
+            const Padding(
+              padding: EdgeInsets.all(15),
+              child: Text(
+                'It is a long established fact that a reader will be distracted.',
+                style: TextStyle(
+                  fontSize: 20,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
