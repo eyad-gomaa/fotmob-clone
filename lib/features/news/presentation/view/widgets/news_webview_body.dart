@@ -12,13 +12,47 @@ class _NewsWebviewBodyState extends State<NewsWebviewBody> {
   late InAppWebViewController _webViewController;
   @override
   Widget build(BuildContext context) {
-    return InAppWebView(
-      initialUrlRequest: URLRequest(
-          url: WebUri.uri(Uri.parse("https://flutter.dev")),
+    return Stack(
+      children: [
+        InAppWebView(
+          initialUrlRequest: URLRequest(
+            url: WebUri.uri(Uri.parse("https://flutter.dev")),
+          ),
+          onWebViewCreated: (InAppWebViewController controller) {
+            _webViewController = controller;
+          },
         ),
-      onWebViewCreated: (InAppWebViewController controller) {
-        _webViewController = controller;
-      },
+        Positioned(
+          bottom: 20,
+          right: 20,
+          child: Row(
+            children: [
+              IconButton(
+                icon: const Icon(
+                  Icons.arrow_circle_left_outlined,
+                  size: 30,
+                ),
+                onPressed: () async {
+                  if (await _webViewController.canGoBack()) {
+                    _webViewController.goBack();
+                  }
+                },
+              ),
+              IconButton(
+                icon: const Icon(
+                  Icons.arrow_circle_right_outlined,
+                  size: 30,
+                ),
+                onPressed: () async {
+                  if (await _webViewController.canGoForward()) {
+                    _webViewController.goForward();
+                  }
+                },
+              ),
+            ],
+          ),
+        )
+      ],
     );
   }
 }
