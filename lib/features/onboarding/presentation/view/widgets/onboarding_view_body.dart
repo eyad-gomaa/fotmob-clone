@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fotmob_clone/features/onboarding/presentation/view/widgets/ball_animation.dart';
-import 'package:fotmob_clone/features/onboarding/presentation/view/widgets/quick_Setup_button.dart';
+import 'package:fotmob_clone/features/onboarding/presentation/view/widgets/quick_setup_button.dart';
 import 'package:gap/gap.dart';
 
 class OnBoardingViewBody extends StatelessWidget {

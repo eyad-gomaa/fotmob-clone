@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fotmob_clone/features/home/presentation/view/widgets/custom_tab.dart';
 import 'package:fotmob_clone/features/more/presentation/view/widgets/tv_shedules_view_body.dart';
 import 'package:gap/gap.dart';

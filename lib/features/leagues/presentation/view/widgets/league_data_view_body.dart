@@ -3,7 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:fotmob_clone/core/utils/manager/color_manager.dart';
 import 'package:fotmob_clone/features/home/presentation/view/widgets/custom_tab.dart';
 import 'package:fotmob_clone/features/leagues/presentation/view/widgets/league_data_view_flexable_space.dart';
-import 'package:fotmob_clone/features/leagues/presentation/view/widgets/table_tab.dart';
 import 'package:fotmob_clone/features/onboarding/presentation/view/widgets/local_follow_body.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';

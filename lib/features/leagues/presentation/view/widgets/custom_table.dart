@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fotmob_clone/core/utils/manager/color_manager.dart';
 import 'package:fotmob_clone/features/leagues/presentation/view/widgets/league_data_view_body.dart';
 import 'package:gap/gap.dart';
 

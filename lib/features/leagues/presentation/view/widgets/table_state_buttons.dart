@@ -113,7 +113,6 @@ class _TableStateButtonsState extends State<TableStateButtons> {
                     ),
                   ],
                   onChanged: (value) {
-                    print(value);
                     // BlocProvider.of<TableStateCubit>(context).changeTableState(state: value!);
                   },
                 ),

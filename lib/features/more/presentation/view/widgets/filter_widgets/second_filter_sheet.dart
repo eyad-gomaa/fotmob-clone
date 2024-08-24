@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:fotmob_clone/core/utils/manager/color_manager.dart';
-import 'package:go_router/go_router.dart';
 
 class SecondFilterBottomSheet extends StatefulWidget {
   const SecondFilterBottomSheet({super.key});
@@ -10,7 +9,6 @@ class SecondFilterBottomSheet extends StatefulWidget {
       _SecondFilterBottomSheetState();
 }
 
-late String _league;
 
 class _SecondFilterBottomSheetState extends State<SecondFilterBottomSheet> {
   @override

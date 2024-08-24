@@ -9,7 +9,7 @@ class TableTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return  ListView(
-      children: [
+      children: const [
         TableStateButtons(),
         Gap(10),
         CustomTable(),

@@ -7,7 +7,7 @@ class QuickSetupButton extends StatelessWidget {
   const QuickSetupButton({
     super.key,
   });
-
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(

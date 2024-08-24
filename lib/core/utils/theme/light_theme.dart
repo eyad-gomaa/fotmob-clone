@@ -17,6 +17,7 @@ ThemeData lightTheme = ThemeData(
     surfaceBright: const Color.fromARGB(255, 242, 242, 242),
   ),
   appBarTheme: AppBarTheme(
+    surfaceTintColor:Colors.transparent,
     titleTextStyle: TextStyle(
       fontSize: 24,
       color: ColorManager.primaryColor,
@@ -47,4 +48,5 @@ ThemeData lightTheme = ThemeData(
     backgroundColor: Colors.white,
     elevation: 0.1,
   ),
+  
 );

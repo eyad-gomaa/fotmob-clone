@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:fotmob_clone/core/utils/manager/color_manager.dart';
-import 'package:fotmob_clone/features/matches/presentation/view/matches_view.dart';
+import 'package:fotmob_clone/features/matches/presentation/view/widgets/search_suffix.dart';
 import 'package:gap/gap.dart';
 
 class SearchBottomSheet extends StatelessWidget {
